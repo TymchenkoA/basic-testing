@@ -6,6 +6,9 @@ import * as path from 'path';
 
 jest.mock('fs');
 jest.mock('path');
+jest.mock('fs/promises', () => ({
+  readFile: jest.fn(),
+}));
 
 describe('doStuffByTimeout', () => {
   beforeAll(() => {
